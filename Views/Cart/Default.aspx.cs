@@ -193,7 +193,7 @@ namespace Views
             litMsg.Text = "<div class='alert alert-success'>结算成功！实收: ¥" + order.actualAmount.ToString("F2") + "</div>" +
                 "<div style='margin-top:12px;display:flex;gap:12px;align-items:center;'>" +
                 "<span style='color:#555;font-size:13px;'>是否需要快递运输？</span>" +
-                "<a href='../Shipments/Edit.aspx?orderId=" + order.id + "' class='btn btn-primary'>创建快递单</a>" +
+                "<a href='../Shipments/Edit.aspx?orderId=" + result + "' class='btn btn-primary'>创建快递单</a>" +
                 "<a href='Default.aspx' class='btn'>暂不需要</a>" +
                 "</div>";
             BindCart();

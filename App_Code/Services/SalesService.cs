@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using DAL;
@@ -92,9 +92,9 @@ namespace Services
                     order.totalAmount += item.subTotal;
                 }
 
-            order.actualAmount = order.totalAmount - order.discountAmount;
+                order.actualAmount = order.totalAmount - order.discountAmount;
 
-            if (order.customerId.HasValue)
+                if (order.customerId.HasValue)
                 {
                     var customer = db.Customers.Find(order.customerId.Value);
                     customer.totalSpent += order.actualAmount;
@@ -110,7 +110,8 @@ namespace Services
 
                 order.items = items;
                 db.SalesOrders.Add(order);
-                return db.SaveChanges();
+                db.SaveChanges();
+                return (int)order.id;
             }
         }
 
