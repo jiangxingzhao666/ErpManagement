@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="80" height="140" x="60" y="30" rx="10" fill="#D4A017"/>
+  <rect width="60" height="30" x="70" y="28" rx="6" fill="#8B0000"/>
+  <rect width="60" height="10" x="70" y="44" rx="4" fill="#D4A017"/>
+  <text x="100" y="80" font-size="12" font-weight="bold" fill="#8B0000" text-anchor="middle" font-family="Arial">金龙鱼</text>
+  <text x="100" y="100" font-size="11" fill="#8B0000" text-anchor="middle" font-family="Arial">花生油</text>
+  <rect width="46" height="30" x="77" y="110" rx="6" fill="#F0C040" opacity="0.6"/>
+  <text x="100" y="130" font-size="14" font-weight="bold" fill="#8B0000" text-anchor="middle" font-family="Arial">5L</text>
+  <text x="100" y="168" font-size="9" fill="#8B4513" text-anchor="middle" font-family="Arial">压榨一级</text>
+</svg>

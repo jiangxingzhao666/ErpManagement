@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="60" height="140" x="70" y="30" rx="6" fill="#E8F8FF"/>
+  <rect width="60" height="30" x="70" y="30" rx="6" fill="#2196F3"/>
+  <rect width="60" height="8" x="70" y="52" fill="#E8F8FF"/>
+  <path d="M100,80 Q70,85 80,110 L120,110 Q130,85 100,80Z" fill="#2196F3" opacity="0.3"/>
+  <text x="100" y="100" font-size="12" font-weight="bold" fill="#1565C0" text-anchor="middle" font-family="Arial">农夫</text>
+  <text x="100" y="118" font-size="11" fill="#1565C0" text-anchor="middle" font-family="Arial">山泉</text>
+  <text x="100" y="155" font-size="10" fill="#1565C0" text-anchor="middle" font-family="Arial">550ml</text>
+</svg>

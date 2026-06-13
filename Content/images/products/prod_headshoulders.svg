@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="60" height="140" x="70" y="30" rx="12" fill="white" stroke="#1A5276" stroke-width="2"/>
+  <rect width="50" height="30" x="75" y="32" rx="6" fill="#1A5276"/>
+  <text x="100" y="53" font-size="10" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">海飞丝</text>
+  <rect width="40" height="40" x="80" y="75" rx="6" fill="#2E86C1" opacity="0.3"/>
+  <path d="M85,95 Q100,80 115,95" stroke="#1A5276" stroke-width="1.5" fill="none"/>
+  <path d="M88,100 Q100,88 112,100" stroke="#1A5276" stroke-width="1.2" fill="none"/>
+  <text x="100" y="135" font-size="10" fill="#1A5276" text-anchor="middle" font-family="Arial">去屑止痒</text>
+  <text x="100" y="155" font-size="10" fill="#999" text-anchor="middle" font-family="Arial">400ml</text>
+</svg>

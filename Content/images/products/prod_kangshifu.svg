@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <ellipse cx="100" cy="90" rx="60" ry="40" fill="#FFCC00"/>
+  <ellipse cx="100" cy="90" rx="55" ry="35" fill="#FFDD33"/>
+  <text x="100" y="75" font-size="14" font-weight="bold" fill="#CC3300" text-anchor="middle" font-family="Arial">康师傅</text>
+  <text x="100" y="95" font-size="12" fill="#CC3300" text-anchor="middle" font-family="Arial">红烧牛肉面</text>
+  <rect width="80" height="30" x="60" y="120" rx="6" fill="#CC3300"/>
+  <text x="100" y="140" font-size="10" fill="white" text-anchor="middle" font-family="Arial">经典口味</text>
+  <line x1="75" y1="55" x2="80" y2="50" stroke="#CC3300" stroke-width="2"/>
+  <line x1="100" y1="50" x2="100" y2="44" stroke="#CC3300" stroke-width="2"/>
+  <line x1="125" y1="55" x2="120" y2="50" stroke="#CC3300" stroke-width="2"/>
+</svg>

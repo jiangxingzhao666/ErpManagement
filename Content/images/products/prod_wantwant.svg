@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="110" height="80" x="45" y="60" rx="8" fill="#FF5722"/>
+  <rect width="110" height="20" x="45" y="60" rx="8" fill="#E64A19"/>
+  <text x="100" y="78" font-size="16" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">旺旺</text>
+  <circle cx="75" cy="105" r="10" fill="#FFE0B2"/>
+  <circle cx="102" cy="98" r="9" fill="#FFE0B2"/>
+  <circle cx="125" cy="103" r="10" fill="#FFE0B2"/>
+  <circle cx="88" cy="120" r="9" fill="#FFE0B2"/>
+  <circle cx="112" cy="118" r="10" fill="#FFE0B2"/>
+  <text x="100" y="152" font-size="12" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">雪饼 520g</text>
+</svg>

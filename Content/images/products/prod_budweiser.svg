@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="70" height="140" x="65" y="30" rx="8" fill="#C0C0C0"/>
+  <rect width="70" height="30" x="65" y="30" rx="8" fill="#A0A0A0"/>
+  <rect width="70" height="8" x="65" y="52" fill="#C0C0C0"/>
+  <polygon points="100,55 85,75 115,75" fill="#CC0000"/>
+  <text x="100" y="115" font-size="16" font-weight="bold" fill="#CC0000" text-anchor="middle" font-family="Arial">Bud</text>
+  <text x="100" y="135" font-size="13" font-weight="bold" fill="#CC0000" text-anchor="middle" font-family="Arial">weiser</text>
+  <text x="100" y="160" font-size="10" fill="#666" text-anchor="middle" font-family="Arial">330ml</text>
+</svg>

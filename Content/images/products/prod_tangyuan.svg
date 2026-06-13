@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="100" height="110" x="50" y="45" rx="10" fill="#FFF" stroke="#E91E63" stroke-width="2"/>
+  <rect width="100" height="30" x="50" y="45" rx="10" fill="#E91E63"/>
+  <rect width="100" height="8" x="50" y="67" fill="#FFF"/>
+  <text x="100" y="65" font-size="13" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">思念</text>
+  <circle cx="80" cy="100" r="14" fill="white" stroke="#F48FB1" stroke-width="1"/>
+  <circle cx="120" cy="95" r="13" fill="white" stroke="#F48FB1" stroke-width="1"/>
+  <circle cx="100" cy="115" r="14" fill="white" stroke="#F48FB1" stroke-width="1"/>
+  <circle cx="85" cy="115" r="5" fill="#333"/>
+  <circle cx="115" cy="95" r="4" fill="#333"/>
+  <circle cx="98" cy="98" r="5" fill="#333"/>
+  <text x="100" y="150" font-size="11" font-weight="bold" fill="#E91E63" text-anchor="middle" font-family="Arial">黑芝麻</text>
+  <text x="100" y="165" font-size="10" fill="#999" text-anchor="middle" font-family="Arial">400g</text>
+</svg>
