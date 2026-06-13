@@ -35,9 +35,9 @@
         .form-row textarea { resize: vertical; min-height: 60px; }
         .form-inline { display: flex; gap: 12px; }
         .form-inline > div { flex: 1; }
-        .form-row label .req { color: var(--primary); font-size: 1.2em; font-weight: 700; }
-        .form-row input:required, .form-row textarea.required { border-color: var(--primary); background: #f0fdfa; }
-        .form-row input:required:focus, .form-row textarea.required:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(13,148,136,.15); }
+        .form-row label .req { color: #e53e3e; font-size: 1.2em; font-weight: 700; }
+        .form-row input:required, .form-row textarea.required { border-color: #e53e3e; background: #fff5f5; }
+        .form-row input:required:focus, .form-row textarea.required:focus { border-color: #e53e3e; box-shadow: 0 0 0 3px rgba(229,62,62,.12); }
         .form-row .hint { font-size: 11px; color: #999; margin-top: 2px; }
         .btn-submit { width: 100%; padding: 13px; background: linear-gradient(135deg, #0d9488, #0f766e); color: #fff; border: none; border-radius: var(--radius); font-size: 16px; font-weight: 600; cursor: pointer; transition: opacity .2s; margin-top: 8px; }
         .btn-submit:hover { opacity: .9; }
