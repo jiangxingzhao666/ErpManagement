@@ -13,14 +13,14 @@
            ============================================================ */
         :root {
             /* Primary palette */
-            --color-primary: #e94560;
-            --color-primary-light: #f06b80;
-            --color-primary-dark: #c23152;
-            --color-primary-bg: #fff5f5;
+            --color-primary: #0d9488;
+            --color-primary-light: #14b8a6;
+            --color-primary-dark: #0f766e;
+            --color-primary-bg: #f0fdfa;
 
             /* Accent */
-            --color-accent: #ff9f43;
-            --color-accent-light: #ffbe76;
+            --color-accent: #f59e0b;
+            --color-accent-light: #fbbf24;
 
             /* Neutrals */
             --color-grey-50: #fafafa;
@@ -35,9 +35,9 @@
             --color-grey-900: #212121;
 
             /* Dark surface */
-            --color-dark: #1a1a2e;
-            --color-dark-2: #0f3460;
-            --color-dark-3: #16213e;
+            --color-dark: #0f172a;
+            --color-dark-2: #0d9488;
+            --color-dark-3: #0f766e;
 
             /* Semantic */
             --color-success: #2ecc71;

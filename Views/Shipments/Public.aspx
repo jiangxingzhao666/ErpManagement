@@ -8,8 +8,8 @@
     <title>填写快递信息 - 便民超市</title>
     <style>
         :root {
-            --primary: #e94560;
-            --primary-dark: #c23152;
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
             --text: #333;
             --text-light: #777;
             --border: #ddd;
@@ -18,9 +18,9 @@
             --radius: 8px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; background: linear-gradient(135deg, #667eea, #764ba2); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        body { font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; background: linear-gradient(135deg, #0d9488, #0f766e); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
         .container { background: var(--white); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.2); width: 100%; max-width: 520px; overflow: hidden; }
-        .head { background: linear-gradient(135deg, #e94560, #c23152); color: #fff; padding: 28px 32px; text-align: center; }
+        .head { background: linear-gradient(135deg, #0d9488, #0f766e); color: #fff; padding: 28px 32px; text-align: center; }
         .head h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
         .head p { font-size: 13px; opacity: .85; }
         .body { padding: 28px 32px; }
@@ -35,7 +35,7 @@
         .form-row textarea { resize: vertical; min-height: 60px; }
         .form-inline { display: flex; gap: 12px; }
         .form-inline > div { flex: 1; }
-        .btn-submit { width: 100%; padding: 13px; background: linear-gradient(135deg, #e94560, #c23152); color: #fff; border: none; border-radius: var(--radius); font-size: 16px; font-weight: 600; cursor: pointer; transition: opacity .2s; margin-top: 8px; }
+        .btn-submit { width: 100%; padding: 13px; background: linear-gradient(135deg, #0d9488, #0f766e); color: #fff; border: none; border-radius: var(--radius); font-size: 16px; font-weight: 600; cursor: pointer; transition: opacity .2s; margin-top: 8px; }
         .btn-submit:hover { opacity: .9; }
         .btn-skip { display: block; text-align: center; margin-top: 14px; color: #999; font-size: 13px; text-decoration: none; }
         .btn-skip:hover { color: var(--primary); }
