@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Web.UI;
 using Services;
@@ -96,7 +96,7 @@ namespace Views
                 prodSvc.Update(prod);
             }
 
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Products/Default.aspx");
         }
 
         private string HandleImageUpload()
@@ -144,7 +144,7 @@ namespace Views
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
             Helpers.AuthHelper.Logout();
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Products/Default.aspx");
         }
     }
 }

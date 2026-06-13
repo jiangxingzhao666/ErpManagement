@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Sales.aspx.cs" Inherits="Views.Sales" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Views.Sales" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,7 +24,7 @@
             <div class="card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3>销售单列表</h3>
-                    <a href="SaleCreate.aspx" class="btn btn-primary">新建销售单</a>
+                    <a href="Sales/Create.aspx" class="btn btn-primary">新建销售单</a>
                 </div>
                 <asp:GridView ID="gvOrders" runat="server" AutoGenerateColumns="False"
                     CssClass="table" GridLines="None"
@@ -42,7 +42,7 @@
                         <asp:BoundField DataField="createdAt" HeaderText="时间" DataFormatString="{0:yyyy-MM-dd}" />
                         <asp:TemplateField HeaderText="操作">
                             <ItemTemplate>
-                                <a href='SaleDetail.aspx?id=<%# Eval("id") %>' class="btn btn-primary">详情</a>
+                                <a href='Sales/Detail.aspx?id=<%# Eval("id") %>' class="btn btn-primary">详情</a>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

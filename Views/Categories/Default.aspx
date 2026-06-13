@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Categories.aspx.cs" Inherits="Views.Categories" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Views.Categories" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,7 +24,7 @@
             <div class="card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3>分类列表</h3>
-                    <a href="CategoryEdit.aspx" class="btn btn-primary">新增分类</a>
+                    <a href="Categories/Edit.aspx" class="btn btn-primary">新增分类</a>
                 </div>
                 <asp:GridView ID="gvCategories" runat="server"
                     AutoGenerateColumns="False"
@@ -37,7 +37,7 @@
                         <asp:BoundField DataField="description" HeaderText="描述" />
                         <asp:TemplateField HeaderText="操作">
                             <ItemTemplate>
-                                <a href='CategoryEdit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
+                                <a href='Categories/Edit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
                                 <asp:Button ID="btnDel" runat="server" Text="删除" CssClass="btn btn-danger" CommandName="DeleteItem" CommandArgument='<%# Eval("id") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>

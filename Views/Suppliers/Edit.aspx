@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SupplierEdit.aspx.cs" Inherits="Views.SupplierEdit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Edit.aspx.cs" Inherits="Views.SupplierEdit" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -54,7 +54,7 @@
                 </div>
                 <div>
                     <asp:Button ID="btnSave" runat="server" Text="保存" CssClass="btn btn-primary" OnClick="BtnSave_Click" />
-                    <a href="Suppliers.aspx" class="btn" style="margin-left:8px;">取消</a>
+                    <a href="Suppliers/Default.aspx" class="btn" style="margin-left:8px;">取消</a>
                 </div>
             </div>
         </div>

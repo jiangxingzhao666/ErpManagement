@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CategoryEdit.aspx.cs" Inherits="Views.CategoryEdit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Edit.aspx.cs" Inherits="Views.CategoryEdit" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -34,7 +34,7 @@
                 </div>
                 <div>
                     <asp:Button ID="btnSave" runat="server" Text="保存" CssClass="btn btn-primary" OnClick="BtnSave_Click" />
-                    <a href="Categories.aspx" class="btn" style="margin-left:8px;">取消</a>
+                    <a href="Categories/Default.aspx" class="btn" style="margin-left:8px;">取消</a>
                 </div>
             </div>
         </div>

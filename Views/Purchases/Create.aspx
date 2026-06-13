@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PurchaseCreate.aspx.cs" Inherits="Views.PurchaseCreate" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Create.aspx.cs" Inherits="Views.PurchaseCreate" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <asp:Button ID="btnSubmit" runat="server" Text="提交进货单" CssClass="btn btn-primary" OnClick="BtnSubmit_Click" style="margin-top:12px;" />
-                <a href="Purchases.aspx" class="btn" style="margin-left:8px;">取消</a>
+                <a href="Purchases/Default.aspx" class="btn" style="margin-left:8px;">取消</a>
             </div>
         </div>
     </div>

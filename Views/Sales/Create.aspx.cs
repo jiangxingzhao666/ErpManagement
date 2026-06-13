@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Web.UI;
 using Services;
@@ -89,13 +89,13 @@ namespace Views
                 return;
             }
 
-            Response.Redirect("Sales.aspx");
+            Response.Redirect("Sales/Default.aspx");
         }
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
             Helpers.AuthHelper.Logout();
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Products/Default.aspx");
         }
     }
 }

@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Suppliers.aspx.cs" Inherits="Views.Suppliers" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Views.Suppliers" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,7 +24,7 @@
             <div class="card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3>供应商列表</h3>
-                    <a href="SupplierEdit.aspx" class="btn btn-primary">新增供应商</a>
+                    <a href="Suppliers/Edit.aspx" class="btn btn-primary">新增供应商</a>
                 </div>
                 <div style="margin-bottom:12px;">
                     <asp:TextBox ID="txtKeyword" runat="server" placeholder="搜索名称" style="width:200px;" />
@@ -43,7 +43,7 @@
                         <asp:BoundField DataField="email" HeaderText="邮箱" />
                         <asp:TemplateField HeaderText="操作">
                             <ItemTemplate>
-                                <a href='SupplierEdit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
+                                <a href='Suppliers/Edit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
                                 <asp:Button ID="btnDel" runat="server" Text="删除" CssClass="btn btn-danger" CommandName="DeleteItem" CommandArgument='<%# Eval("id") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>

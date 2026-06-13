@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PurchaseDetail.aspx.cs" Inherits="Views.PurchaseDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Detail.aspx.cs" Inherits="Views.PurchaseDetail" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,7 +36,7 @@
                         <asp:BoundField DataField="subTotal" HeaderText="小计" DataFormatString="{0:F2}" />
                     </Columns>
                 </asp:GridView>
-                <a href="Purchases.aspx" class="btn" style="margin-top:12px;">返回</a>
+                <a href="Purchases/Default.aspx" class="btn" style="margin-top:12px;">返回</a>
             </div>
         </div>
     </div>

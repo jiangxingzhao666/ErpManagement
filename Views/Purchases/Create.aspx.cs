@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Web.UI;
 using Services;
@@ -72,13 +72,13 @@ namespace Views
             var purSvc = new PurchaseService();
             purSvc.CreateOrder(order, items, Helpers.AuthHelper.GetUserId());
 
-            Response.Redirect("Purchases.aspx");
+            Response.Redirect("Purchases/Default.aspx");
         }
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
             Helpers.AuthHelper.Logout();
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Products/Default.aspx");
         }
     }
 }

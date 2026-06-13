@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Users.aspx.cs" Inherits="Views.Users" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Views.Users" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,7 +24,7 @@
             <div class="card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3>用户列表</h3>
-                    <a href="UserEdit.aspx" class="btn btn-primary">新增用户</a>
+                    <a href="Users/Edit.aspx" class="btn btn-primary">新增用户</a>
                 </div>
                 <asp:GridView ID="gvUsers" runat="server"
                     AutoGenerateColumns="False"

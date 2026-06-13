@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Web.UI;
 using Services;
 using Entities;
@@ -59,13 +59,13 @@ namespace Views
                 svc.Update(sup);
             }
 
-            Response.Redirect("Suppliers.aspx");
+            Response.Redirect("Suppliers/Default.aspx");
         }
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
             Helpers.AuthHelper.Logout();
-            Response.Redirect("Default.aspx");
+            Response.Redirect("Products/Default.aspx");
         }
     }
 }
