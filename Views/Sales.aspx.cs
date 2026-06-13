@@ -1,0 +1,139 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Services;
+using Entities;
+
+namespace Views
+{
+    public partial class Sales : Page
+    {
+        private SalesService saleSvc = new SalesService();
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Helpers.AuthHelper.RequireRole("管理员,店长");
+            var role = Helpers.AuthHelper.GetRole();
+            sidebar.InnerHtml = Helpers.SidebarHelper.Build("sales", role);
+            litUserInfo.Text = Helpers.AuthHelper.GetDisplayName() + " (" + role + ")";
+            pnlLoggedIn.Visible = true;
+
+            if (!IsPostBack)
+                BindGrid();
+
+            BindDropdowns();
+        }
+
+        private void BindGrid()
+        {
+            gvOrders.DataSource = saleSvc.GetAll(1, 100);
+            gvOrders.DataBind();
+        }
+
+        private void BindDropdowns()
+        {
+            var prodSvc = new ProductService();
+            var products = prodSvc.GetActiveForSale();
+            ddlProduct0.DataSource = products;
+            ddlProduct0.DataTextField = "name";
+            ddlProduct0.DataValueField = "id";
+            ddlProduct0.DataBind();
+
+            var cusSvc = new CustomerService();
+            var customers = cusSvc.GetAllSimple();
+            ddlCustomer.DataSource = customers;
+            ddlCustomer.DataTextField = "name";
+            ddlCustomer.DataValueField = "id";
+            ddlCustomer.DataBind();
+            ddlCustomer.Items.Insert(0, new ListItem("散客（不选）", ""));
+        }
+
+        protected void GvOrders_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var id = int.Parse(e.CommandArgument.ToString());
+
+            if (e.CommandName == "Detail")
+            {
+                var order = saleSvc.GetById(id);
+                litDetailTitle.Text = "销售单详情 - " + order.orderNo;
+                litDetailCustomer.Text = order.customer?.name ?? "散客";
+                litDetailPay.Text = order.paymentMethod;
+                litDetailAmount.Text = order.actualAmount.ToString("F2");
+                gvItems.DataSource = order.items;
+                gvItems.DataBind();
+                pnlDetail.Visible = true;
+            }
+        }
+
+        protected void BtnShowCreate_Click(object sender, EventArgs e)
+        {
+            BindDropdowns();
+            pnlCreate.Visible = true;
+        }
+
+        protected void BtnSubmit_Click(object sender, EventArgs e)
+        {
+            var items = new List<SalesOrderItem>();
+            var productIds = new List<string>();
+            var quantities = new List<string>();
+
+            foreach (string key in Request.Form.AllKeys)
+            {
+                if (key.StartsWith("ddlProduct"))
+                    productIds.Add(Request.Form[key]);
+                if (key.StartsWith("txtQty"))
+                    quantities.Add(Request.Form[key]);
+            }
+
+            for (int i = 0; i < productIds.Count; i++)
+            {
+                if (string.IsNullOrEmpty(productIds[i])) continue;
+                items.Add(new SalesOrderItem
+                {
+                    productId = long.Parse(productIds[i]),
+                    quantity = int.Parse(string.IsNullOrEmpty(quantities[i]) ? "1" : quantities[i])
+                });
+            }
+
+            if (items.Count == 0)
+            {
+                litError.Text = "<div class='alert alert-error'>请添加商品</div>";
+                return;
+            }
+
+            long? customerId = null;
+            if (!string.IsNullOrEmpty(ddlCustomer.SelectedValue))
+                customerId = long.Parse(ddlCustomer.SelectedValue);
+
+            var order = new SalesOrder
+            {
+                customerId = customerId,
+                discountAmount = decimal.Parse(string.IsNullOrEmpty(txtDiscount.Text) ? "0" : txtDiscount.Text),
+                paymentMethod = ddlPayment.SelectedValue,
+                remark = txtRemark.Text
+            };
+
+            int result = saleSvc.CreateSale(order, items, Helpers.AuthHelper.GetUserId());
+
+            if (result == -1)
+            {
+                litError.Text = "<div class='alert alert-error'>库存不足，请检查商品库存</div>";
+                return;
+            }
+
+            pnlCreate.Visible = false;
+            BindGrid();
+        }
+
+        protected void BtnBack_Click(object sender, EventArgs e) { pnlDetail.Visible = false; }
+        protected void BtnCreateCancel_Click(object sender, EventArgs e) { pnlCreate.Visible = false; }
+
+        protected void BtnLogout_Click(object sender, EventArgs e)
+        {
+            Helpers.AuthHelper.Logout();
+            Response.Redirect("Default.aspx");
+        }
+    }
+}
