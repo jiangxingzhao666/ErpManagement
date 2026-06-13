@@ -154,9 +154,9 @@ namespace Views
                 return;
             }
 
-            var shipmentUrl = "../Shipments/Edit.aspx?orderId=" + result;
-            if (!Helpers.AuthHelper.IsLogin())
-                shipmentUrl = "../Login.aspx?ReturnUrl=" + Server.UrlEncode(shipmentUrl);
+            var shipmentUrl = Helpers.AuthHelper.IsLogin()
+                ? "../Shipments/Edit.aspx?orderId=" + result
+                : "../Shipments/Public.aspx?orderId=" + result;
 
             CartHelper.ClearCart();
             litMsg.Text = "<div class='alert alert--success'>结算成功！合计: ¥" + order.actualAmount.ToString("F2") + "，感谢您的惠顾！</div>" +
