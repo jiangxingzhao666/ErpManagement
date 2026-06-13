@@ -5,7 +5,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <title>购物车</title>
-    <link rel="stylesheet" href="../Content/site.css" />
+    <link rel="stylesheet" href="/Content/site.css" />
     <style>
         .cart-layout { display: flex; gap: 20px; }
         .cart-left { flex: 1; }

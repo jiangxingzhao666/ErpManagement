@@ -5,7 +5,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <title>库存预警</title>
-    <link rel="stylesheet" href="../Content/site.css" />
+    <link rel="stylesheet" href="/Content/site.css" />
 </head>
 <body>
 <form id="form1" runat="server">

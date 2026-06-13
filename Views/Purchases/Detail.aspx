@@ -5,7 +5,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <title>进货单详情 - 超市进销存管理系统</title>
-    <link rel="stylesheet" href="../Content/site.css" />
+    <link rel="stylesheet" href="/Content/site.css" />
 </head>
 <body>
 <form id="form1" runat="server">

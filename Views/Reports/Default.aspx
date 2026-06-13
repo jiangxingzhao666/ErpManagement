@@ -5,7 +5,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <title>销售报表</title>
-    <link rel="stylesheet" href="../Content/site.css" />
+    <link rel="stylesheet" href="/Content/site.css" />
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 </head>
 <body>
