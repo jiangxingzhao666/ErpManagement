@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Views.StoreFront" MaintainScrollPositionOnPostback="true" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Views.StoreFront" MaintainScrollPositionOnPostback="true" %>
 <%@ Import Namespace="Helpers" %>
 
 <!DOCTYPE html>
