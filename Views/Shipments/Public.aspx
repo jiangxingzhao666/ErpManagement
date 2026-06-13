@@ -112,7 +112,7 @@
                 <p style="text-align:center;color:#666;font-size:13px;">我们将尽快为您发货，感谢您的惠顾！</p>
             </asp:Panel>
 
-            <a href="Default.aspx" class="btn-skip">暂不需要，继续购物</a>
+            <a href="Default.aspx" class="btn-skip">继续购物</a>
         </div>
     </div>
 </form>
