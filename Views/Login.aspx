@@ -21,7 +21,6 @@
             <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" />
         </div>
         <asp:Button ID="btnLogin" runat="server" Text="登 录" CssClass="btn btn-primary" OnClick="BtnLogin_Click" />
-        <p style="text-align:center;margin-top:16px;color:#999;font-size:12px;">默认账号: admin / admin123</p>
     </div>
 </form>
 </body>
