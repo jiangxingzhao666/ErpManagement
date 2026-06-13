@@ -13,7 +13,7 @@ namespace Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Helpers.AuthHelper.RequireRole("管理员,店长");
+            Helpers.AuthHelper.RequireLogin();
             var role = Helpers.AuthHelper.GetRole();
             sidebar.InnerHtml = Helpers.SidebarHelper.Build("shipments", role);
             litUserInfo.Text = Helpers.AuthHelper.GetDisplayName() + " (" + role + ")";
