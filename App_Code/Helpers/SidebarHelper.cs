@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 
 namespace Helpers
 {
@@ -19,6 +19,7 @@ namespace Helpers
                 sb.Append("<div class='menu-title'>后台业务管理</div>");
                 sb.Append("<a href='../Purchases/Default.aspx' class='" + (active == "purchases" ? "active" : "") + "'>进货管理</a>");
                 sb.Append("<a href='../Sales/Default.aspx' class='" + (active == "sales" ? "active" : "") + "'>销售管理</a>");
+                sb.Append("<a href='../Shipments/Default.aspx' class='" + (active == "shipments" ? "active" : "") + "'>快递管理</a>");
                 sb.Append("<div class='menu-title'>统计报表</div>");
                 sb.Append("<a href='../Stock/Default.aspx' class='" + (active == "stock" ? "active" : "") + "'>库存预警</a>");
                 sb.Append("<a href='../Reports/Default.aspx' class='" + (active == "reports" ? "active" : "") + "'>销售报表</a>");

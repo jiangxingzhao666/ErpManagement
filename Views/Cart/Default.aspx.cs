@@ -190,7 +190,7 @@ namespace Views
             }
 
             CartHelper.ClearCart();
-            litMsg.Text = "<div class='alert alert-success'>结算成功！实收: ¥" + order.actualAmount.ToString("F2") + "</div>";
+            litMsg.Text = "<div class='alert alert-success'>结算成功！实收: ¥" + order.actualAmount.ToString("F2") + " <a href='../Shipments/Edit.aspx?orderId=" + order.id + "'>创建快递单</a></div>";
             BindCart();
             UpdateSummary();
         }

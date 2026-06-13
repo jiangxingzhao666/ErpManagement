@@ -17,6 +17,7 @@ namespace DAL {
         public DbSet<SalesOrder>        SalesOrders         { get; set; }
         public DbSet<SalesOrderItem>    SalesOrderItems     { get; set; }
         public DbSet<User>              Users               { get; set; }
+        public DbSet<Shipment>          Shipments           { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             modelBuilder.HasDefaultSchema("public");
@@ -29,6 +30,7 @@ namespace DAL {
             modelBuilder.Configurations.Add(new SalesOrderMap());
             modelBuilder.Configurations.Add(new SalesOrderItemMap());
             modelBuilder.Configurations.Add(new UserMap());
+            modelBuilder.Configurations.Add(new ShipmentMap());
         }
     }
 }
