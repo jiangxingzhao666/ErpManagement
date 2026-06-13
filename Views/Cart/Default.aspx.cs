@@ -28,11 +28,12 @@ namespace Views
                 ddlCustomer.DataValueField = "id";
                 ddlCustomer.DataBind();
                 ddlCustomer.Items.Insert(0, new ListItem("散客", ""));
+
+                BindCart();
+                UpdateSummary();
             }
 
             BindProductCards(txtKeyword.Text.Trim());
-            BindCart();
-            UpdateSummary();
         }
 
         private void BindProductCards(string keyword)
@@ -61,6 +62,7 @@ namespace Views
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
+            UpdateSummary();
         }
 
         protected void RptProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
