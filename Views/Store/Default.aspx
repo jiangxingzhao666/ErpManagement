@@ -1193,7 +1193,7 @@
                                     Visible='<%# !string.IsNullOrEmpty((string)Eval("ImagePath")) %>' />
                                 <span class="product-card__placeholder"
                                     Visible='<%# string.IsNullOrEmpty((string)Eval("ImagePath")) %>'
-                                    runat="server">🛒</span>
+                                    runat="server">&#128230;</span>
                             </div>
                             <div class="product-card__body">
                                 <div class="product-card__name"><%# Eval("Name") %></div>
