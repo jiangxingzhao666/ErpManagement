@@ -12,7 +12,7 @@ namespace Views
         {
             Helpers.AuthHelper.RequireLogin();
             if (Helpers.AuthHelper.IsStaff())
-                Response.Redirect("Cart/Default.aspx");
+                Response.Redirect("../Cart/Default.aspx");
             var role = Helpers.AuthHelper.GetRole();
             sidebar.InnerHtml = Helpers.SidebarHelper.Build("products", role);
 
@@ -114,7 +114,7 @@ namespace Views
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
             Helpers.AuthHelper.Logout();
-            Response.Redirect("Products/Default.aspx");
+            Response.Redirect("../Products/Default.aspx");
         }
     }
 }

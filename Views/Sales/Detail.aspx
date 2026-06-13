@@ -36,7 +36,7 @@
                         <asp:BoundField DataField="subTotal" HeaderText="小计" DataFormatString="{0:F2}" />
                     </Columns>
                 </asp:GridView>
-                <a href="Sales/Default.aspx" class="btn" style="margin-top:12px;">返回</a>
+                <a href="../Sales/Default.aspx" class="btn" style="margin-top:12px;">返回</a>
             </div>
         </div>
     </div>

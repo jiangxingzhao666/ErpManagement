@@ -58,13 +58,13 @@ namespace Views
                 svc.Update(cus);
             }
 
-            Response.Redirect("Customers/Default.aspx");
+            Response.Redirect("../Customers/Default.aspx");
         }
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
             Helpers.AuthHelper.Logout();
-            Response.Redirect("Products/Default.aspx");
+            Response.Redirect("../Products/Default.aspx");
         }
     }
 }

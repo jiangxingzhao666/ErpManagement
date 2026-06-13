@@ -54,7 +54,7 @@
                 </div>
                 <div>
                     <asp:Button ID="btnSave" runat="server" Text="保存" CssClass="btn btn-primary" OnClick="BtnSave_Click" />
-                    <a href="Customers/Default.aspx" class="btn" style="margin-left:8px;">取消</a>
+                    <a href="../Customers/Default.aspx" class="btn" style="margin-left:8px;">取消</a>
                 </div>
             </div>
         </div>

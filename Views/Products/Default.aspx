@@ -18,7 +18,7 @@
                 <asp:Button ID="btnLogout" runat="server" Text="退出" CssClass="btn-logout" OnClick="BtnLogout_Click" />
             </asp:Panel>
             <asp:Panel ID="pnlLoggedOut" runat="server" Visible="true">
-                <a href="Login.aspx" class="btn-login">登 录</a>
+                <a href="../Login.aspx" class="btn-login">登 录</a>
             </asp:Panel>
         </div>
     </div>
@@ -49,7 +49,7 @@
             <div class="card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3>商品列表</h3>
-                    <a href="Products/Edit.aspx" class="btn btn-primary">新增商品</a>
+                    <a href="../Products/Edit.aspx" class="btn btn-primary">新增商品</a>
                 </div>
 
                 <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center;">
@@ -85,7 +85,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="操作">
                             <ItemTemplate>
-                                <a href='Products/Edit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
+                                <a href='../Products/Edit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
                                 <asp:Button ID="btnDel" runat="server" Text="删除" CssClass="btn btn-danger" CommandName="DeleteItem" CommandArgument='<%# Eval("id") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>

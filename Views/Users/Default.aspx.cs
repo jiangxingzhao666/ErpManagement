@@ -41,7 +41,7 @@ namespace Views
                 if (Helpers.AuthHelper.IsManager() && target.role == "管理员")
                     return;
 
-                Response.Redirect("Users/Edit.aspx?id=" + id);
+                Response.Redirect("../Users/Edit.aspx?id=" + id);
             }
             else if (e.CommandName == "DeleteItem")
             {
@@ -77,7 +77,7 @@ namespace Views
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
             Helpers.AuthHelper.Logout();
-            Response.Redirect("Products/Default.aspx");
+            Response.Redirect("../Products/Default.aspx");
         }
     }
 }

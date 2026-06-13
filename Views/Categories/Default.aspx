@@ -24,7 +24,7 @@
             <div class="card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3>分类列表</h3>
-                    <a href="Categories/Edit.aspx" class="btn btn-primary">新增分类</a>
+                    <a href="../Categories/Edit.aspx" class="btn btn-primary">新增分类</a>
                 </div>
                 <asp:GridView ID="gvCategories" runat="server"
                     AutoGenerateColumns="False"
@@ -37,7 +37,7 @@
                         <asp:BoundField DataField="description" HeaderText="描述" />
                         <asp:TemplateField HeaderText="操作">
                             <ItemTemplate>
-                                <a href='Categories/Edit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
+                                <a href='../Categories/Edit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
                                 <asp:Button ID="btnDel" runat="server" Text="删除" CssClass="btn btn-danger" CommandName="DeleteItem" CommandArgument='<%# Eval("id") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>

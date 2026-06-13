@@ -24,7 +24,7 @@
             <div class="card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3>客户列表</h3>
-                    <a href="Customers/Edit.aspx" class="btn btn-primary">新增客户</a>
+                    <a href="../Customers/Edit.aspx" class="btn btn-primary">新增客户</a>
                 </div>
                 <div style="margin-bottom:12px;">
                     <asp:TextBox ID="txtKeyword" runat="server" placeholder="搜索名称" style="width:200px;" />
@@ -43,7 +43,7 @@
                         <asp:BoundField DataField="memberLevel" HeaderText="等级" />
                         <asp:TemplateField HeaderText="操作">
                             <ItemTemplate>
-                                <a href='Customers/Edit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
+                                <a href='../Customers/Edit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
                                 <asp:Button ID="btnDel" runat="server" Text="删除" CssClass="btn btn-danger" CommandName="DeleteItem" CommandArgument='<%# Eval("id") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>

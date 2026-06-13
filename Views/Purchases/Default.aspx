@@ -24,7 +24,7 @@
             <div class="card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3>进货单列表</h3>
-                    <a href="Purchases/Create.aspx" class="btn btn-primary">新建进货单</a>
+                    <a href="../Purchases/Create.aspx" class="btn btn-primary">新建进货单</a>
                 </div>
                 <div style="margin-bottom:12px;">
                     <asp:DropDownList ID="ddlStatus" runat="server">
@@ -50,7 +50,7 @@
                         <asp:BoundField DataField="createdAt" HeaderText="创建时间" DataFormatString="{0:yyyy-MM-dd}" />
                         <asp:TemplateField HeaderText="操作">
                             <ItemTemplate>
-                                <a href='Purchases/Detail.aspx?id=<%# Eval("id") %>' class="btn btn-primary">详情</a>
+                                <a href='../Purchases/Detail.aspx?id=<%# Eval("id") %>' class="btn btn-primary">详情</a>
                                 <asp:Button ID="btnConfirm" runat="server" Text="入库" CssClass="btn btn-primary" CommandName="Confirm" CommandArgument='<%# Eval("id") %>' Visible='<%# Eval("status").ToString() == "待入库" %>' OnClientClick="return confirm('确认入库？库存将增加')" />
                                 <asp:Button ID="btnCancel" runat="server" Text="取消" CssClass="btn btn-danger" CommandName="Cancel" CommandArgument='<%# Eval("id") %>' Visible='<%# Eval("status").ToString() == "待入库" %>' OnClientClick="return confirm('确定取消？')" />
                             </ItemTemplate>

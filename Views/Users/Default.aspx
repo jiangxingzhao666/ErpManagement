@@ -24,7 +24,7 @@
             <div class="card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3>用户列表</h3>
-                    <a href="Users/Edit.aspx" class="btn btn-primary">新增用户</a>
+                    <a href="../Users/Edit.aspx" class="btn btn-primary">新增用户</a>
                 </div>
                 <asp:GridView ID="gvUsers" runat="server"
                     AutoGenerateColumns="False"

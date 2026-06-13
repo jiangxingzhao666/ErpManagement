@@ -261,7 +261,7 @@ namespace Views
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
             AuthHelper.Logout();
-            Response.Redirect("Products/Default.aspx");
+            Response.Redirect("../Products/Default.aspx");
         }
     }
 }

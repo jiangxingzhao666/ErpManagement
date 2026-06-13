@@ -21,7 +21,7 @@ namespace Views
                 string idStr = Request.QueryString["id"];
                 if (string.IsNullOrEmpty(idStr))
                 {
-                    Response.Redirect("Sales/Default.aspx");
+                    Response.Redirect("../Sales/Default.aspx");
                     return;
                 }
 
@@ -38,7 +38,7 @@ namespace Views
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
             Helpers.AuthHelper.Logout();
-            Response.Redirect("Products/Default.aspx");
+            Response.Redirect("../Products/Default.aspx");
         }
     }
 }

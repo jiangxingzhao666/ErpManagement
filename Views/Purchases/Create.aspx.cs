@@ -72,13 +72,13 @@ namespace Views
             var purSvc = new PurchaseService();
             purSvc.CreateOrder(order, items, Helpers.AuthHelper.GetUserId());
 
-            Response.Redirect("Purchases/Default.aspx");
+            Response.Redirect("../Purchases/Default.aspx");
         }
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {
             Helpers.AuthHelper.Logout();
-            Response.Redirect("Products/Default.aspx");
+            Response.Redirect("../Products/Default.aspx");
         }
     }
 }

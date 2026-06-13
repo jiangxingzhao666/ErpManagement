@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <asp:Button ID="btnSubmit" runat="server" Text="提交销售单" CssClass="btn btn-primary" OnClick="BtnSubmit_Click" style="margin-top:12px;" />
-                <a href="Sales/Default.aspx" class="btn" style="margin-left:8px;">取消</a>
+                <a href="../Sales/Default.aspx" class="btn" style="margin-left:8px;">取消</a>
             </div>
         </div>
     </div>
