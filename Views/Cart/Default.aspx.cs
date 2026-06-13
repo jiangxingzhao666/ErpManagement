@@ -21,8 +21,6 @@ namespace Views
 
             if (!IsPostBack)
             {
-                BindProductCards(null);
-
                 var cusSvc = new CustomerService();
                 var cus = cusSvc.GetAllSimple();
                 ddlCustomer.DataSource = cus;
@@ -30,10 +28,11 @@ namespace Views
                 ddlCustomer.DataValueField = "id";
                 ddlCustomer.DataBind();
                 ddlCustomer.Items.Insert(0, new ListItem("散客", ""));
-
-                BindCart();
-                UpdateSummary();
             }
+
+            BindProductCards(txtKeyword.Text.Trim());
+            BindCart();
+            UpdateSummary();
         }
 
         private void BindProductCards(string keyword)
@@ -62,9 +61,6 @@ namespace Views
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
-            BindProductCards(txtKeyword.Text.Trim());
-            BindCart();
-            UpdateSummary();
         }
 
         protected void RptProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
