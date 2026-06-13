@@ -52,7 +52,7 @@ namespace Views
                 Name = p.name,
                 SellingPrice = p.sellingPrice,
                 StockQuantity = p.stockQuantity,
-                ImageUrl = string.IsNullOrEmpty(p.imagePath) ? "" : ResolveUrl(p.imagePath)
+                ImagePath = p.imagePath
             }).ToList();
 
             rptProducts.DataSource = cardData;

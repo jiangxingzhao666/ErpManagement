@@ -64,8 +64,8 @@
                                     CommandArgument='<%# Eval("Id") %>'
                                     Enabled='<%# (int)Eval("StockQuantity") > 0 %>'>
                                     <div class="card-img">
-                                        <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' style="max-width:100%;max-height:100%;object-fit:contain;" Visible='<%# !string.IsNullOrEmpty(Eval("ImageUrl")?.ToString()) %>' />
-                                        <span class="no-img" Visible='<%# string.IsNullOrEmpty(Eval("ImageUrl")?.ToString()) %>' runat="server">&#128230;</span>
+                                        <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# Eval("ImagePath") %>' style="max-width:100%;max-height:100%;object-fit:contain;" Visible='<%# !string.IsNullOrEmpty((string)Eval("ImagePath")) %>' />
+                                        <span class="no-img" Visible='<%# string.IsNullOrEmpty((string)Eval("ImagePath")) %>' runat="server">&#128230;</span>
                                     </div>
                                     <div class="card-body">
                                         <div class="card-name"><%# Eval("Name") %></div>
