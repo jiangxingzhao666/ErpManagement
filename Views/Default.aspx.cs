@@ -11,6 +11,8 @@ namespace Views
         protected void Page_Load(object sender, EventArgs e)
         {
             Helpers.AuthHelper.RequireLogin();
+            if (Helpers.AuthHelper.IsStaff())
+                Response.Redirect("Cart.aspx");
             var role = Helpers.AuthHelper.GetRole();
             sidebar.InnerHtml = Helpers.SidebarHelper.Build("products", role);
 
