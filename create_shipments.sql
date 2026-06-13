@@ -37,3 +37,6 @@ FROM salesorders so
 LEFT JOIN customers c ON so.customerid = c.id
 WHERE so.status = '已完成'
   AND NOT EXISTS (SELECT 1 FROM shipments WHERE salesorderid = so.id);
+
+-- 3. 重置自增序列（防止主键冲突）
+SELECT setval('shipments_id_seq', COALESCE((SELECT MAX(id) FROM shipments), 0));

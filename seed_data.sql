@@ -69,8 +69,3 @@ UPDATE products SET stockquantity = stockquantity - 4 WHERE id = 4;
 UPDATE products SET stockquantity = stockquantity - 6 WHERE id = 2;
 UPDATE products SET stockquantity = stockquantity - 1 WHERE id = 3;
 UPDATE products SET stockquantity = stockquantity - 1 WHERE id = 5;
-
--- 7. 快递单 (shipments)
-INSERT INTO shipments (salesorderid, trackingnumber, carrier, recipientname, recipientphone, recipientaddress, shippingfee, status, remark, createdat) VALUES
-(1, 'KD202501180001', '顺丰快递', '张三', '13911110001', '北京市海淀区中关村', 8.00, '已签收', '已于1月20日签收', '2025-01-18 17:00:00'),
-(2, 'KD202501220001', '圆通快递', '李四', '13911110002', '上海市徐汇区', 6.00, '运输中', '', '2025-01-22 12:00:00');
