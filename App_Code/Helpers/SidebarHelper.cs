@@ -6,14 +6,13 @@ namespace Helpers
     {
         public static string Build(string active, string role)
         {
-            var isStaff = role == "操作员";
-            var isAdmin = role == "管理员";
+            var isStaff = AuthHelper.IsStaff();
             var sb = new StringBuilder();
 
-            sb.Append("<div class='menu-title'>基础数据</div>");
-            sb.Append("<a href='Default.aspx' class='" + (active == "products" ? "active" : "") + "'>商品管理</a>");
             if (!isStaff)
             {
+                sb.Append("<div class='menu-title'>基础数据</div>");
+                sb.Append("<a href='Default.aspx' class='" + (active == "products" ? "active" : "") + "'>商品管理</a>");
                 sb.Append("<a href='Categories.aspx' class='" + (active == "categories" ? "active" : "") + "'>分类管理</a>");
                 sb.Append("<a href='Suppliers.aspx' class='" + (active == "suppliers" ? "active" : "") + "'>供应商管理</a>");
                 sb.Append("<a href='Customers.aspx' class='" + (active == "customers" ? "active" : "") + "'>客户管理</a>");
@@ -23,12 +22,10 @@ namespace Helpers
                 sb.Append("<div class='menu-title'>统计报表</div>");
                 sb.Append("<a href='StockAlert.aspx' class='" + (active == "stock" ? "active" : "") + "'>库存预警</a>");
                 sb.Append("<a href='Reports.aspx' class='" + (active == "reports" ? "active" : "") + "'>销售报表</a>");
-                if (isAdmin || role == "店长")
-                {
-                    sb.Append("<div class='menu-title'>系统设置</div>");
-                    sb.Append("<a href='Users.aspx' class='" + (active == "users" ? "active" : "") + "'>用户管理</a>");
-                }
+                sb.Append("<div class='menu-title'>系统设置</div>");
+                sb.Append("<a href='Users.aspx' class='" + (active == "users" ? "active" : "") + "'>用户管理</a>");
             }
+
             sb.Append("<div class='menu-title'>门店业务</div>");
             sb.Append("<a href='Cart.aspx' class='" + (active == "cart" ? "active" : "") + "'>购物车</a>");
 
