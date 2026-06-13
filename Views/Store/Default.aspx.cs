@@ -155,7 +155,12 @@ namespace Views
             }
 
             CartHelper.ClearCart();
-            litMsg.Text = "<div class='alert alert-success'>结算成功！合计: ¥" + order.actualAmount.ToString("F2") + "，感谢您的惠顾！<br/><a href='../Shipments/Edit.aspx?orderId=" + order.id + "'>填写快递信息</a></div>";
+            litMsg.Text = "<div class='alert alert--success'>结算成功！合计: ¥" + order.actualAmount.ToString("F2") + "，感谢您的惠顾！</div>" +
+                "<div style='margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;'>" +
+                "<span style='color:#555;font-size:14px;'>是否需要快递运输？</span>" +
+                "<a href='../Shipments/Edit.aspx?orderId=" + order.id + "' class='btn btn--primary'>创建快递单</a>" +
+                "<a href='Default.aspx' class='btn' style='background:#e0e0e0;color:#555;'>暂不需要</a>" +
+                "</div>";
             BindCart();
             UpdateCartSummary();
         }
