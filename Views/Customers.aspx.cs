@@ -1,8 +1,6 @@
 using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Services;
-using Entities;
 
 namespace Views
 {
@@ -31,62 +29,15 @@ namespace Views
 
         protected void BtnSearch_Click(object sender, EventArgs e) { BindGrid(); }
 
-        protected void BtnShowAdd_Click(object sender, EventArgs e)
+        protected void GvCustomers_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
         {
-            hidId.Value = "";
-            txtName.Text = txtPhone.Text = txtEmail.Text = txtAddress.Text = "";
-            ddlLevel.SelectedValue = "普通";
-            litFormTitle.Text = "新增客户";
-            pnlForm.Visible = true;
-        }
-
-        protected void GvCustomers_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            var id = int.Parse(e.CommandArgument.ToString());
-
-            if (e.CommandName == "EditItem")
+            if (e.CommandName == "DeleteItem")
             {
-                var c = svc.GetById(id);
-                hidId.Value = c.id.ToString();
-                txtName.Text = c.name;
-                txtPhone.Text = c.phone;
-                txtEmail.Text = c.email;
-                txtAddress.Text = c.address;
-                ddlLevel.SelectedValue = c.memberLevel;
-                litFormTitle.Text = "编辑客户";
-                pnlForm.Visible = true;
-            }
-            else if (e.CommandName == "DeleteItem")
-            {
+                var id = int.Parse(e.CommandArgument.ToString());
                 svc.Delete(id);
                 BindGrid();
             }
         }
-
-        protected void BtnSave_Click(object sender, EventArgs e)
-        {
-            var cus = new Customer
-            {
-                name = txtName.Text,
-                phone = txtPhone.Text,
-                email = txtEmail.Text,
-                address = txtAddress.Text,
-                memberLevel = ddlLevel.SelectedValue
-            };
-
-            if (string.IsNullOrEmpty(hidId.Value))
-                svc.Add(cus);
-            else
-            {
-                cus.id = long.Parse(hidId.Value);
-                svc.Update(cus);
-            }
-
-            pnlForm.Visible = false;
-            BindGrid();
-        }
-
-        protected void BtnCancel_Click(object sender, EventArgs e) { pnlForm.Visible = false; }
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {

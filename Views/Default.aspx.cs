@@ -69,23 +69,6 @@ namespace Views
             ddlCatFilter.Items.Insert(0, new ListItem("全部分类", ""));
         }
 
-        private void BindFormDropdowns()
-        {
-            var catSvc = new CategoryService();
-            ddlCategory.DataSource = catSvc.GetAll();
-            ddlCategory.DataTextField = "name";
-            ddlCategory.DataValueField = "id";
-            ddlCategory.DataBind();
-
-            var supSvc = new SupplierService();
-            var sups = supSvc.GetAllSimple();
-            ddlSupplier.DataSource = sups;
-            ddlSupplier.DataTextField = "name";
-            ddlSupplier.DataValueField = "id";
-            ddlSupplier.DataBind();
-            ddlSupplier.Items.Insert(0, new ListItem("不选", ""));
-        }
-
         protected void BtnSearch_Click(object sender, EventArgs e) { LoadData(); }
 
         protected void GvProducts_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -120,80 +103,12 @@ namespace Views
             if (e.CommandName == "Header") return;
             var id = long.Parse(e.CommandArgument.ToString());
 
-            if (e.CommandName == "EditItem")
-            {
-                var prodSvc = new ProductService();
-                var p = prodSvc.GetById((int)id);
-                BindFormDropdowns();
-
-                hidId.Value = p.id.ToString();
-                txtCode.Text = p.code;
-                txtName.Text = p.name;
-                if (p.categoryId > 0) ddlCategory.SelectedValue = p.categoryId.ToString();
-                if (p.supplierId.HasValue && p.supplierId > 0) ddlSupplier.SelectedValue = p.supplierId.Value.ToString();
-                txtUnit.Text = p.unit;
-                txtPurchasePrice.Text = p.purchasePrice.ToString();
-                txtSellingPrice.Text = p.sellingPrice.ToString();
-                txtStock.Text = p.stockQuantity.ToString();
-                txtMinStock.Text = p.minStock.ToString();
-                txtDescription.Text = p.description;
-
-                litFormTitle.Text = "编辑商品";
-                pnlForm.Visible = true;
-            }
-            else if (e.CommandName == "DeleteItem")
+            if (e.CommandName == "DeleteItem")
             {
                 var prodSvc = new ProductService();
                 prodSvc.Delete((int)id);
                 LoadData();
             }
-        }
-
-        protected void BtnShowAdd_Click(object sender, EventArgs e)
-        {
-            BindFormDropdowns();
-            hidId.Value = "";
-            txtCode.Text = txtName.Text = txtUnit.Text = txtDescription.Text = "";
-            txtPurchasePrice.Text = txtSellingPrice.Text = txtStock.Text = "0";
-            txtMinStock.Text = "10";
-            litFormTitle.Text = "新增商品";
-            pnlForm.Visible = true;
-        }
-
-        protected void BtnSave_Click(object sender, EventArgs e)
-        {
-            var prod = new Product
-            {
-                code = txtCode.Text,
-                name = txtName.Text,
-                categoryId = long.Parse(ddlCategory.SelectedValue),
-                supplierId = string.IsNullOrEmpty(ddlSupplier.SelectedValue) ? (long?)null : long.Parse(ddlSupplier.SelectedValue),
-                unit = txtUnit.Text,
-                purchasePrice = decimal.Parse(txtPurchasePrice.Text),
-                sellingPrice = decimal.Parse(txtSellingPrice.Text),
-                stockQuantity = int.Parse(txtStock.Text),
-                minStock = int.Parse(txtMinStock.Text),
-                description = txtDescription.Text
-            };
-
-            var prodSvc = new ProductService();
-            if (string.IsNullOrEmpty(hidId.Value))
-            {
-                prodSvc.Add(prod);
-            }
-            else
-            {
-                prod.id = long.Parse(hidId.Value);
-                prodSvc.Update(prod);
-            }
-
-            pnlForm.Visible = false;
-            LoadData();
-        }
-
-        protected void BtnCancel_Click(object sender, EventArgs e)
-        {
-            pnlForm.Visible = false;
         }
 
         protected void BtnLogout_Click(object sender, EventArgs e)

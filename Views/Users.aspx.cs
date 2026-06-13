@@ -18,12 +18,6 @@ namespace Views
             litUserInfo.Text = Helpers.AuthHelper.GetDisplayName() + " (" + role + ")";
             pnlLoggedIn.Visible = true;
 
-            if (Helpers.AuthHelper.IsManager())
-            {
-                ddlRole.Items.Clear();
-                ddlRole.Items.Add(new ListItem("操作员", "操作员"));
-            }
-
             if (!IsPostBack)
                 BindGrid();
         }
@@ -35,17 +29,10 @@ namespace Views
             gvUsers.DataBind();
         }
 
-        protected void BtnShowAdd_Click(object sender, EventArgs e)
-        {
-            hidId.Value = "";
-            txtUsername.Text = txtDisplayName.Text = txtPassword.Text = "";
-            ddlRole.SelectedValue = "操作员";
-            litFormTitle.Text = "新增用户";
-            pnlForm.Visible = true;
-        }
-
         protected void GvUsers_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            if (e.CommandName == "Header") return;
+
             var id = int.Parse(e.CommandArgument.ToString());
             var target = svc.GetById(id);
 
@@ -54,13 +41,7 @@ namespace Views
                 if (Helpers.AuthHelper.IsManager() && target.role == "管理员")
                     return;
 
-                hidId.Value = target.id.ToString();
-                txtUsername.Text = target.username;
-                txtDisplayName.Text = target.displayName;
-                txtPassword.Text = "";
-                ddlRole.SelectedValue = target.role;
-                litFormTitle.Text = "编辑用户";
-                pnlForm.Visible = true;
+                Response.Redirect("UserEdit.aspx?id=" + id);
             }
             else if (e.CommandName == "DeleteItem")
             {
@@ -77,6 +58,12 @@ namespace Views
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 var user = (User)e.Row.DataItem;
+                var litStatus = (Literal)e.Row.FindControl("litStatus");
+
+                litStatus.Text = user.isActive
+                    ? "<span class='tag tag-ok'>正常</span>"
+                    : "<span class='tag tag-danger'>已删除</span>";
+
                 if (Helpers.AuthHelper.IsManager() && user.role == "管理员")
                 {
                     var btnEdit = (Button)e.Row.FindControl("btnEdit");
@@ -86,40 +73,6 @@ namespace Views
                 }
             }
         }
-
-        protected void BtnSave_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(hidId.Value))
-            {
-                var existing = svc.GetById(int.Parse(hidId.Value));
-                if (Helpers.AuthHelper.IsManager() && existing.role == "管理员")
-                    return;
-            }
-
-            var allowedRole = Helpers.AuthHelper.IsManager() ? "操作员" : ddlRole.SelectedValue;
-            var user = new User
-            {
-                username = txtUsername.Text,
-                passwordHash = txtPassword.Text,
-                displayName = txtDisplayName.Text,
-                role = allowedRole
-            };
-
-            if (string.IsNullOrEmpty(hidId.Value))
-            {
-                svc.Add(user);
-            }
-            else
-            {
-                user.id = long.Parse(hidId.Value);
-                svc.Update(user);
-            }
-
-            pnlForm.Visible = false;
-            BindGrid();
-        }
-
-        protected void BtnCancel_Click(object sender, EventArgs e) { pnlForm.Visible = false; }
 
         protected void BtnLogout_Click(object sender, EventArgs e)
         {

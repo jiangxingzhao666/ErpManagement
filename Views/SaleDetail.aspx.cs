@@ -4,7 +4,7 @@ using Services;
 
 namespace Views
 {
-    public partial class Sales : Page
+    public partial class SaleDetail : Page
     {
         private SalesService saleSvc = new SalesService();
 
@@ -17,13 +17,22 @@ namespace Views
             pnlLoggedIn.Visible = true;
 
             if (!IsPostBack)
-                BindGrid();
-        }
+            {
+                string idStr = Request.QueryString["id"];
+                if (string.IsNullOrEmpty(idStr))
+                {
+                    Response.Redirect("Sales.aspx");
+                    return;
+                }
 
-        private void BindGrid()
-        {
-            gvOrders.DataSource = saleSvc.GetAll(1, 100);
-            gvOrders.DataBind();
+                var order = saleSvc.GetById(int.Parse(idStr));
+                litDetailTitle.Text = "销售单详情 - " + order.orderNo;
+                litDetailCustomer.Text = order.customer?.name ?? "散客";
+                litDetailPay.Text = order.paymentMethod;
+                litDetailAmount.Text = order.actualAmount.ToString("F2");
+                gvItems.DataSource = order.items;
+                gvItems.DataBind();
+            }
         }
 
         protected void BtnLogout_Click(object sender, EventArgs e)

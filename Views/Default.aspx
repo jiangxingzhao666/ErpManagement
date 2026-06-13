@@ -49,7 +49,7 @@
             <div class="card">
                 <div style="display:flex;justify-content:space-between;align-items:center;">
                     <h3>商品列表</h3>
-                    <asp:Button ID="btnShowAdd" runat="server" Text="新增商品" CssClass="btn btn-primary" OnClick="BtnShowAdd_Click" />
+                    <a href="ProductEdit.aspx" class="btn btn-primary">新增商品</a>
                 </div>
 
                 <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center;">
@@ -85,72 +85,13 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="操作">
                             <ItemTemplate>
-                                <asp:Button ID="btnEdit" runat="server" Text="编辑" CssClass="btn btn-primary" CommandName="EditItem" CommandArgument='<%# Eval("id") %>' />
+                                <a href='ProductEdit.aspx?id=<%# Eval("id") %>' class="btn btn-primary">编辑</a>
                                 <asp:Button ID="btnDel" runat="server" Text="删除" CssClass="btn btn-danger" CommandName="DeleteItem" CommandArgument='<%# Eval("id") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                 </asp:GridView>
             </div>
-
-            <asp:Panel ID="pnlForm" runat="server" Visible="false">
-            <div class="card">
-                <h3><asp:Literal ID="litFormTitle" runat="server" /></h3>
-                <asp:HiddenField ID="hidId" runat="server" />
-                <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                    <div class="form-group" style="flex:1;min-width:160px;">
-                        <label>编号</label>
-                        <asp:TextBox ID="txtCode" runat="server" />
-                    </div>
-                    <div class="form-group" style="flex:2;min-width:200px;">
-                        <label>名称</label>
-                        <asp:TextBox ID="txtName" runat="server" />
-                    </div>
-                </div>
-                <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                    <div class="form-group" style="flex:1;min-width:160px;">
-                        <label>分类</label>
-                        <asp:DropDownList ID="ddlCategory" runat="server" />
-                    </div>
-                    <div class="form-group" style="flex:1;min-width:160px;">
-                        <label>供应商</label>
-                        <asp:DropDownList ID="ddlSupplier" runat="server">
-                            <asp:ListItem Value="" Text="不选" />
-                        </asp:DropDownList>
-                    </div>
-                    <div class="form-group" style="max-width:100px;">
-                        <label>单位</label>
-                        <asp:TextBox ID="txtUnit" runat="server" />
-                    </div>
-                </div>
-                <div style="display:flex;gap:12px;flex-wrap:wrap;">
-                    <div class="form-group" style="max-width:140px;">
-                        <label>进价</label>
-                        <asp:TextBox ID="txtPurchasePrice" runat="server" TextMode="Number" Text="0" step="0.01" />
-                    </div>
-                    <div class="form-group" style="max-width:140px;">
-                        <label>售价</label>
-                        <asp:TextBox ID="txtSellingPrice" runat="server" TextMode="Number" Text="0" step="0.01" />
-                    </div>
-                    <div class="form-group" style="max-width:100px;">
-                        <label>库存</label>
-                        <asp:TextBox ID="txtStock" runat="server" TextMode="Number" Text="0" />
-                    </div>
-                    <div class="form-group" style="max-width:120px;">
-                        <label>最低库存</label>
-                        <asp:TextBox ID="txtMinStock" runat="server" TextMode="Number" Text="10" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>描述</label>
-                    <asp:TextBox ID="txtDescription" runat="server" TextMode="MultiLine" Rows="2" />
-                </div>
-                <div>
-                    <asp:Button ID="btnSave" runat="server" Text="保存" CssClass="btn btn-primary" OnClick="BtnSave_Click" />
-                    <asp:Button ID="btnCancel" runat="server" Text="取消" CssClass="btn" OnClick="BtnCancel_Click" />
-                </div>
-            </div>
-            </asp:Panel>
         </div>
     </div>
 

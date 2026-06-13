@@ -1,8 +1,6 @@
 using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Services;
-using Entities;
 
 namespace Views
 {
@@ -29,70 +27,16 @@ namespace Views
             gvSuppliers.DataBind();
         }
 
-        protected void BtnSearch_Click(object sender, EventArgs e)
-        {
-            BindGrid();
-        }
+        protected void BtnSearch_Click(object sender, EventArgs e) { BindGrid(); }
 
-        protected void BtnShowAdd_Click(object sender, EventArgs e)
+        protected void GvSuppliers_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
         {
-            hidId.Value = "";
-            txtName.Text = txtContact.Text = txtPhone.Text = txtEmail.Text = txtAddress.Text = txtRemark.Text = "";
-            litFormTitle.Text = "新增供应商";
-            pnlForm.Visible = true;
-        }
-
-        protected void GvSuppliers_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            var id = int.Parse(e.CommandArgument.ToString());
-
-            if (e.CommandName == "EditItem")
+            if (e.CommandName == "DeleteItem")
             {
-                var s = svc.GetById(id);
-                hidId.Value = s.id.ToString();
-                txtName.Text = s.name;
-                txtContact.Text = s.contactPerson;
-                txtPhone.Text = s.phone;
-                txtEmail.Text = s.email;
-                txtAddress.Text = s.address;
-                txtRemark.Text = s.remark;
-                litFormTitle.Text = "编辑供应商";
-                pnlForm.Visible = true;
-            }
-            else if (e.CommandName == "DeleteItem")
-            {
+                var id = int.Parse(e.CommandArgument.ToString());
                 svc.Delete(id);
                 BindGrid();
             }
-        }
-
-        protected void BtnSave_Click(object sender, EventArgs e)
-        {
-            var sup = new Supplier
-            {
-                name = txtName.Text,
-                contactPerson = txtContact.Text,
-                phone = txtPhone.Text,
-                email = txtEmail.Text,
-                address = txtAddress.Text,
-                remark = txtRemark.Text
-            };
-
-            if (string.IsNullOrEmpty(hidId.Value))
-                svc.Add(sup);
-            else
-            {
-                sup.id = long.Parse(hidId.Value);
-                svc.Update(sup);
-            }
-
-            pnlForm.Visible = false;
-            BindGrid();
-        }
-
-        protected void BtnCancel_Click(object sender, EventArgs e)
-        {
-            pnlForm.Visible = false;
         }
 
         protected void BtnLogout_Click(object sender, EventArgs e)
