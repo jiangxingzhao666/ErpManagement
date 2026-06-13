@@ -10,7 +10,7 @@ namespace Views
         {
             if (Helpers.AuthHelper.IsLogin())
             {
-                Response.Redirect(Helpers.AuthHelper.IsStaff() ? "Cart.aspx" : "Default.aspx");
+                Response.Redirect(Helpers.AuthHelper.IsStaff() ? "Cart/Default.aspx" : "Products/Default.aspx");
             }
         }
 
@@ -31,7 +31,7 @@ namespace Views
             if (user != null)
             {
                 Helpers.AuthHelper.SetLogin(user.id, user.role, user.displayName);
-                Response.Redirect(user.role == "操作员" ? "Cart.aspx" : "Default.aspx");
+                Response.Redirect(user.role == "操作员" ? "Cart/Default.aspx" : "Products/Default.aspx");
             }
             else
             {
