@@ -2,6 +2,6 @@
 <script runat="server">
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Redirect("Views/Products/Default.aspx");
+        Response.Redirect("Views/Store/Default.aspx");
     }
 </script>
