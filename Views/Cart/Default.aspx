@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Views.Cart" EnableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="Views.Cart" EnableEventValidation="false" MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -65,7 +65,7 @@
                                     Enabled='<%# (int)Eval("StockQuantity") > 0 %>'>
                                     <div class="card-img">
                                         <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' style="max-width:100%;max-height:100%;object-fit:contain;" Visible='<%# !string.IsNullOrEmpty(Eval("ImageUrl")?.ToString()) %>' />
-                                        <span class="no-img" visible='<%# string.IsNullOrEmpty(Eval("ImageUrl")?.ToString()) %>' runat="server">&#128230;</span>
+                                        <span class="no-img" Visible='<%# string.IsNullOrEmpty(Eval("ImageUrl")?.ToString()) %>' runat="server">&#128230;</span>
                                     </div>
                                     <div class="card-body">
                                         <div class="card-name"><%# Eval("Name") %></div>
