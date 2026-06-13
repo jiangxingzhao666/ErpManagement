@@ -35,6 +35,10 @@
         .form-row textarea { resize: vertical; min-height: 60px; }
         .form-inline { display: flex; gap: 12px; }
         .form-inline > div { flex: 1; }
+        .form-row label .req { color: var(--primary); font-size: 1.2em; font-weight: 700; }
+        .form-row input:required, .form-row textarea.required { border-color: var(--primary); background: #f0fdfa; }
+        .form-row input:required:focus, .form-row textarea.required:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(13,148,136,.15); }
+        .form-row .hint { font-size: 11px; color: #999; margin-top: 2px; }
         .btn-submit { width: 100%; padding: 13px; background: linear-gradient(135deg, #0d9488, #0f766e); color: #fff; border: none; border-radius: var(--radius); font-size: 16px; font-weight: 600; cursor: pointer; transition: opacity .2s; margin-top: 8px; }
         .btn-submit:hover { opacity: .9; }
         .btn-skip { display: block; text-align: center; margin-top: 14px; color: #999; font-size: 13px; text-decoration: none; }
@@ -67,21 +71,22 @@
             <asp:Panel ID="pnlForm" runat="server">
             <div class="form-inline">
                 <div class="form-row">
-                    <label><span class="req">*</span> 收件人</label>
-                    <asp:TextBox ID="txtRecipientName" runat="server" placeholder="收货人姓名" />
+                    <label><span class="req">*</span> <b>收件人</b></label>
+                    <asp:TextBox ID="txtRecipientName" runat="server" placeholder="请填写收货人姓名" />
                 </div>
                 <div class="form-row">
-                    <label><span class="req">*</span> 电话</label>
-                    <asp:TextBox ID="txtRecipientPhone" runat="server" placeholder="手机号" />
+                    <label><span class="req">*</span> <b>电话</b></label>
+                    <asp:TextBox ID="txtRecipientPhone" runat="server" placeholder="请填写手机号" />
+                    <div class="hint">用于快递员联系您</div>
                 </div>
             </div>
             <div class="form-row">
-                <label><span class="req">*</span> 收件地址</label>
-                <asp:TextBox ID="txtRecipientAddress" runat="server" TextMode="MultiLine" Rows="2" placeholder="省/市/区/详细地址" />
-            </div>
+                <label><span class="req">*</span> <b>收件地址</b></label>
+                <asp:TextBox ID="txtRecipientAddress" runat="server" TextMode="MultiLine" Rows="2" placeholder="请填写省/市/区/详细地址" />
+                <div class="hint">请确保地址准确，以免影响配送</div>
             <div class="form-inline">
                 <div class="form-row">
-                    <label>快递公司</label>
+                    <label>快递公司 <span style="color:#999;font-weight:400;font-size:11px;">(选填)</span></label>
                     <asp:DropDownList ID="ddlCarrier" runat="server">
                         <asp:ListItem Value="顺丰快递" Text="顺丰快递" />
                         <asp:ListItem Value="中通快递" Text="中通快递" />
@@ -93,12 +98,12 @@
                     </asp:DropDownList>
                 </div>
                 <div class="form-row">
-                    <label>运费 ¥</label>
+                    <label>运费 ¥ <span style="color:#999;font-weight:400;font-size:11px;">(选填)</span></label>
                     <asp:TextBox ID="txtShippingFee" runat="server" TextMode="Number" Text="0" step="0.01" />
                 </div>
             </div>
             <div class="form-row">
-                <label>备注</label>
+                <label>备注 <span style="color:#999;font-weight:400;font-size:11px;">(选填)</span></label>
                 <asp:TextBox ID="txtRemark" runat="server" TextMode="MultiLine" Rows="1" placeholder="如有特殊要求请注明" />
             </div>
             <asp:Button ID="btnSubmit" runat="server" Text="提交快递单" CssClass="btn-submit" OnClick="BtnSubmit_Click" />
