@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Helpers;
@@ -20,7 +21,7 @@ namespace Views
 
             if (!IsPostBack)
             {
-                BindProductDropdown(null);
+                BindProductCards(null);
 
                 var cusSvc = new CustomerService();
                 var cus = cusSvc.GetAllSimple();
@@ -35,7 +36,7 @@ namespace Views
             }
         }
 
-        private void BindProductDropdown(string keyword)
+        private void BindProductCards(string keyword)
         {
             var prodSvc = new ProductService();
             var prods = prodSvc.GetActiveForSale();
@@ -44,18 +45,52 @@ namespace Views
                     p.name.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0 ||
                     p.code.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0);
 
-            ddlProduct.DataSource = prods;
-            ddlProduct.DataTextField = "name";
-            ddlProduct.DataValueField = "id";
-            ddlProduct.DataBind();
+            var cardData = prods.Select(p => new
+            {
+                Id = p.id,
+                Code = p.code,
+                Name = p.name,
+                SellingPrice = p.sellingPrice,
+                StockQuantity = p.stockQuantity,
+                ImageUrl = string.IsNullOrEmpty(p.imagePath) ? "" : ResolveUrl(p.imagePath)
+            }).ToList();
 
-            if (prods.Count == 0)
-                ddlProduct.Items.Insert(0, new ListItem("无匹配商品", ""));
+            rptProducts.DataSource = cardData;
+            rptProducts.DataBind();
+            pnlNoProducts.Visible = cardData.Count == 0;
         }
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
-            BindProductDropdown(txtKeyword.Text.Trim());
+            BindProductCards(txtKeyword.Text.Trim());
+            BindCart();
+            UpdateSummary();
+        }
+
+        protected void RptProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "AddToCart")
+            {
+                var productId = long.Parse(e.CommandArgument.ToString());
+                var prodSvc = new ProductService();
+                var product = prodSvc.GetById((int)productId);
+
+                if (product == null || !product.isActive)
+                    return;
+
+                var cart = CartHelper.GetCart();
+                var existing = cart.Find(c => c.ProductId == product.id);
+                if (existing != null && existing.Quantity >= product.stockQuantity)
+                {
+                    litMsg.Text = "<div class='alert alert-error'>库存不足！当前库存: " + product.stockQuantity + "</div>";
+                    return;
+                }
+
+                CartHelper.AddItem(product.id, product.name, product.code, product.unit, product.sellingPrice, 1, product.stockQuantity);
+
+                BindCart();
+                UpdateSummary();
+            }
         }
 
         private void BindCart()
@@ -77,28 +112,6 @@ namespace Views
             litSubTotal.Text = subtotal.ToString("F2");
             litDiscount.Text = discount.ToString("F2");
             litTotal.Text = total.ToString("F2");
-        }
-
-        protected void BtnAdd_Click(object sender, EventArgs e)
-        {
-            var productId = long.Parse(ddlProduct.SelectedValue);
-            var qty = string.IsNullOrEmpty(txtQty.Text) ? 1 : int.Parse(txtQty.Text);
-            if (qty <= 0) return;
-
-            var prodSvc = new ProductService();
-            var product = prodSvc.GetById((int)productId);
-            if (product == null || !product.isActive) return;
-
-            if (qty > product.stockQuantity)
-            {
-                litMsg.Text = "<div class='alert alert-error'>库存不足！当前库存: " + product.stockQuantity + "</div>";
-                return;
-            }
-
-            CartHelper.AddItem(product.id, product.name, product.code, product.unit, product.sellingPrice, qty, product.stockQuantity);
-
-            BindCart();
-            UpdateSummary();
         }
 
         protected void GvCart_RowCommand(object sender, GridViewCommandEventArgs e)

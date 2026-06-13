@@ -12,10 +12,20 @@
         .cart-right { width: 340px; }
         .cart-summary { background: #fafafa; border-radius: 6px; padding: 20px; position: sticky; top: 76px; }
         .cart-summary .total { font-size: 22px; font-weight: bold; color: #ff4d4f; margin: 12px 0; }
-        .product-search { display: flex; gap: 8px; margin-bottom: 16px; align-items: center; }
-        .product-search select { flex: 1; min-width: 0; }
-        .product-search input { width: 70px; flex-shrink: 0; }
-        .product-search .btn { flex-shrink: 0; min-width: 110px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+        .product-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 8px; overflow: hidden; cursor: pointer; transition: all .2s; }
+        .product-card:hover { border-color: #1890ff; box-shadow: 0 2px 8px rgba(24,144,255,.15); transform: translateY(-2px); }
+        .product-card .card-img { width: 100%; height: 140px; display: flex; align-items: center; justify-content: center; background: #fafafa; overflow: hidden; }
+        .product-card .card-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .product-card .card-img .no-img { color: #ccc; font-size: 36px; }
+        .product-card .card-body { padding: 10px 12px; }
+        .product-card .card-name { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .product-card .card-code { font-size: 11px; color: #999; }
+        .product-card .card-footer { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; border-top: 1px solid #f0f0f0; background: #fafafa; }
+        .product-card .card-price { font-size: 16px; font-weight: bold; color: #ff4d4f; }
+        .product-card .card-stock { font-size: 11px; color: #999; }
+        .product-card.out-of-stock { opacity: .45; cursor: not-allowed; }
+        .product-card.out-of-stock:hover { border-color: #e8e8e8; box-shadow: none; transform: none; }
     </style>
 </head>
 <body>
@@ -40,16 +50,38 @@
             <div class="cart-layout">
                 <div class="cart-left">
                     <div class="card">
-                        <h3>添加商品</h3>
-                        <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center;">
+                        <h3>选择商品</h3>
+                        <div style="display:flex;gap:8px;margin-bottom:12px;align-items:center;">
                             <asp:TextBox ID="txtKeyword" runat="server" placeholder="搜索商品名称/编码" style="flex:1;min-width:0;" />
                             <asp:Button ID="btnSearch" runat="server" Text="搜索" CssClass="btn" OnClick="BtnSearch_Click" />
                         </div>
-                        <div class="product-search">
-                            <asp:DropDownList ID="ddlProduct" runat="server" />
-                            <asp:TextBox ID="txtQty" runat="server" TextMode="Number" Text="1" style="width:70px;" />
-                            <asp:Button ID="btnAdd" runat="server" Text="加入购物车" CssClass="btn btn-primary" OnClick="BtnAdd_Click" />
-                        </div>
+                        <asp:Repeater ID="rptProducts" runat="server" OnItemCommand="RptProducts_ItemCommand">
+                            <HeaderTemplate><div class="product-grid"></HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkCard" runat="server"
+                                    CssClass='<%# (int)Eval("StockQuantity") <= 0 ? "product-card out-of-stock" : "product-card" %>'
+                                    CommandName="AddToCart"
+                                    CommandArgument='<%# Eval("Id") %>'
+                                    Enabled='<%# (int)Eval("StockQuantity") > 0 %>'>
+                                    <div class="card-img">
+                                        <asp:Image ID="imgProduct" runat="server" ImageUrl='<%# Eval("ImageUrl") %>' style="max-width:100%;max-height:100%;object-fit:contain;" Visible='<%# !string.IsNullOrEmpty(Eval("ImageUrl")?.ToString()) %>' />
+                                        <span class="no-img" visible='<%# string.IsNullOrEmpty(Eval("ImageUrl")?.ToString()) %>' runat="server">&#128230;</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="card-name"><%# Eval("Name") %></div>
+                                        <div class="card-code"><%# Eval("Code") %></div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="card-price">¥<%# Eval("SellingPrice", "{0:F2}") %></span>
+                                        <span class="card-stock">库存: <%# Eval("StockQuantity") %></span>
+                                    </div>
+                                </asp:LinkButton>
+                            </ItemTemplate>
+                            <FooterTemplate></div></FooterTemplate>
+                        </asp:Repeater>
+                        <asp:Panel ID="pnlNoProducts" runat="server" Visible="false">
+                            <div style="text-align:center;padding:40px;color:#999;">没有匹配的商品</div>
+                        </asp:Panel>
                     </div>
 
                     <div class="card">
