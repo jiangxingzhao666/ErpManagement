@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="55" height="140" x="72" y="30" rx="28" fill="white" stroke="#0A6CD6" stroke-width="2"/>
+  <rect width="50" height="50" x="75" y="35" rx="25" fill="#0A6CD6"/>
+  <text x="100" y="70" font-size="10" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">Crest</text>
+  <rect width="40" height="40" x="80" y="90" rx="6" fill="#FF3366" opacity="0.8"/>
+  <rect width="40" height="40" x="80" y="90" rx="6" fill="url(#wave)"/>
+  <defs>
+    <pattern id="wave" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#FF3366"/>
+      <path d="M0 5 Q2.5 0 5 5 Q7.5 10 10 5" stroke="white" stroke-width="1.5" fill="none"/>
+    </pattern>
+  </defs>
+  <text x="100" y="160" font-size="10" fill="#0A6CD6" text-anchor="middle" font-family="Arial">薄荷清新</text>
+</svg>

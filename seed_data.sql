@@ -17,17 +17,17 @@ INSERT INTO suppliers (name, contactperson, phone, email, address, remark, creat
 ('宝洁日化有限公司',     '赵经理', '13800003333', 'zj@pg.com',       '广州市天河区',   '',             NOW());
 
 -- 3. 商品
-INSERT INTO products (code, name, categoryid, supplierid, unit, purchaseprice, sellingprice, stockquantity, minstock, description, createdat) VALUES
-('SP001', '可口可乐330ml',     1, 1, '罐', 2.20, 3.00,  200, 50, '经典碳酸饮料',     NOW()),
-('SP002', '雪碧330ml',         1, 1, '罐', 2.00, 2.80,  150, 40, '柠檬味汽水',       NOW()),
-('SP003', '奥利奥饼干97g',     2, 2, '盒', 5.50, 8.50,   80, 20, '巧克力夹心',       NOW()),
-('SP004', '乐事薯片75g',       2, 2, '袋', 4.80, 7.50,   60, 15, '原味',             NOW()),
-('SP005', '佳洁士牙膏120g',    3, 3, '支', 8.00, 12.90,  40, 10, '薄荷清新',         NOW()),
-('SP006', '伊利纯牛奶250ml',   4, NULL,'盒', 2.80, 4.00, 120, 30, '优质乳蛋白',       NOW()),
-('SP007', '蒙牛酸奶100g*8',    4, NULL,'排', 9.50, 15.90,  50, 15, '原味酸奶',         NOW()),
-('SP008', '金龙鱼调和油5L',    5, NULL,'桶', 55.00,69.90,  30,  8, '1:1:1黄金比例',   NOW()),
-('SP009', '海天酱油500ml',     5, NULL,'瓶', 5.00, 8.90,  100, 25, '生抽酱油',         NOW()),
-('SP010', '东北大米5kg',       5, NULL,'袋', 25.00,35.00,  45, 10, '优质粳米',         NOW());
+INSERT INTO products (code, name, categoryid, supplierid, unit, purchaseprice, sellingprice, stockquantity, minstock, imagepath, description, createdat) VALUES
+('SP001', '可口可乐330ml',     1, 1, '罐', 2.20, 3.00,  200, 50, '~/Content/images/products/prod_cocacola.svg', '经典碳酸饮料',     NOW()),
+('SP002', '雪碧330ml',         1, 1, '罐', 2.00, 2.80,  150, 40, '~/Content/images/products/prod_sprite.svg',   '柠檬味汽水',       NOW()),
+('SP003', '奥利奥饼干97g',     2, 2, '盒', 5.50, 8.50,   80, 20, '~/Content/images/products/prod_oreo.svg',     '巧克力夹心',       NOW()),
+('SP004', '乐事薯片75g',       2, 2, '袋', 4.80, 7.50,   60, 15, '~/Content/images/products/prod_lays.svg',     '原味',             NOW()),
+('SP005', '佳洁士牙膏120g',    3, 3, '支', 8.00, 12.90,  40, 10, '~/Content/images/products/prod_crest.svg',    '薄荷清新',         NOW()),
+('SP006', '伊利纯牛奶250ml',   4, NULL,'盒', 2.80, 4.00, 120, 30, '~/Content/images/products/prod_milk.svg',     '优质乳蛋白',       NOW()),
+('SP007', '蒙牛酸奶100g*8',    4, NULL,'排', 9.50, 15.90,  50, 15, '~/Content/images/products/prod_yogurt.svg',   '原味酸奶',         NOW()),
+('SP008', '金龙鱼调和油5L',    5, NULL,'桶', 55.00,69.90,  30,  8, '~/Content/images/products/prod_oil.svg',      '1:1:1黄金比例',   NOW()),
+('SP009', '海天酱油500ml',     5, NULL,'瓶', 5.00, 8.90,  100, 25, '~/Content/images/products/prod_soysauce.svg', '生抽酱油',         NOW()),
+('SP010', '东北大米5kg',       5, NULL,'袋', 25.00,35.00,  45, 10, '~/Content/images/products/prod_rice.svg',     '优质粳米',         NOW());
 
 -- 4. 客户
 INSERT INTO customers (name, phone, email, address, memberlevel, totalspent, createdat) VALUES

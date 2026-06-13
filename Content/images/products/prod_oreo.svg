@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="120" height="80" x="40" y="60" rx="8" fill="#1A4BA0"/>
+  <rect width="120" height="16" x="40" y="60" rx="4" fill="#1A4BA0"/>
+  <rect width="120" height="20" x="40" y="100" rx="4" fill="white"/>
+  <rect width="120" height="16" x="40" y="136" rx="4" fill="#1A4BA0"/>
+  <circle cx="82" cy="110" r="12" fill="#3C2415"/>
+  <circle cx="100" cy="110" r="12" fill="#3C2415"/>
+  <circle cx="118" cy="110" r="12" fill="#3C2415"/>
+  <text x="100" y="90" font-size="18" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">OREO</text>
+</svg>

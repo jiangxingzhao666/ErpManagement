@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="80" height="140" x="60" y="30" rx="12" fill="#009B4E"/>
+  <rect width="60" height="30" x="70" y="28" rx="4" fill="#C0C0C0"/>
+  <rect width="60" height="16" x="70" y="40" rx="2" fill="#009B4E"/>
+  <text x="100" y="100" font-size="20" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">Sprite</text>
+  <text x="100" y="120" font-size="12" fill="#CCFFCC" text-anchor="middle" font-family="Arial">柠檬味</text>
+  <circle cx="100" cy="140" r="8" fill="#66FF99" opacity="0.6"/>
+  <circle cx="88" cy="150" r="5" fill="#66FF99" opacity="0.4"/>
+  <circle cx="112" cy="148" r="4" fill="#66FF99" opacity="0.5"/>
+</svg>

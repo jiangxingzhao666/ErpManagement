@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="70" height="140" x="65" y="30" rx="8" fill="#3C1414"/>
+  <rect width="50" height="24" x="75" y="28" rx="5" fill="#8B0000"/>
+  <rect width="50" height="10" x="75" y="38" rx="3" fill="#3C1414"/>
+  <rect width="50" height="50" x="75" y="55" rx="4" fill="#FFD700"/>
+  <text x="100" y="75" font-size="11" font-weight="bold" fill="#8B0000" text-anchor="middle" font-family="Arial">海天</text>
+  <text x="100" y="90" font-size="10" font-weight="bold" fill="#8B0000" text-anchor="middle" font-family="Arial">酱油</text>
+  <text x="100" y="120" font-size="9" fill="#DDD" text-anchor="middle" font-family="Arial">生抽</text>
+  <text x="100" y="140" font-size="10" fill="#DDD" text-anchor="middle" font-family="Arial">500ml</text>
+</svg>
