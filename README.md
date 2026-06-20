@@ -53,20 +53,21 @@ ErpManagement1/
 │   ├── EntitiesMaps/           # 10 个 Fluent API 映射配置
 │   ├── Helpers/                # 6 个工具类 (Auth/Cart/Sidebar/Token/Hash/Xlsx)
 │   └── Services/               # 8 个业务逻辑 Service
-├── Views/                      # 21 个页面, 按功能分 12 个子目录
+├── Views/                      # 25 个页面, 按功能分 12 个子目录
 │   ├── Login.aspx              # 登录 (支持 ReturnUrl)
+│   ├── Test.aspx               # 数据库 CRUD 调试页
 │   ├── Store/Default.aspx      # 前台超市页面 (无需登录)
-│   ├── Products/               # 商品 (Default + Edit)
-│   ├── Categories/             # 分类 (Default + Edit)
-│   ├── Suppliers/              # 供应商 (Default + Edit)
-│   ├── Customers/              # 客户 (Default + Edit)
+│   ├── Products/               # 商品管理 (Default + Edit)
+│   ├── Categories/             # 分类管理 (Default + Edit)
+│   ├── Suppliers/              # 供应商管理 (Default + Edit)
+│   ├── Customers/              # 客户管理 (Default + Edit)
 │   ├── Cart/Default.aspx       # 后台购物车
-│   ├── Purchases/              # 进货 (Default + Create + Detail)
-│   ├── Sales/                  # 销售 (Default + Create + Detail)
-│   ├── Shipments/              # 快递 (Default + Edit + Public)
+│   ├── Purchases/              # 进货管理 (Default + Create + Detail)
+│   ├── Sales/                  # 销售管理 (Default + Create + Detail)
+│   ├── Shipments/              # 快递管理 (Default + Edit + Public)
 │   ├── Stock/Default.aspx      # 库存预警
 │   ├── Reports/Default.aspx    # 统计报表
-│   └── Users/                  # 用户 (Default + Edit)
+│   └── Users/                  # 用户管理 (Default + Edit)
 ├── Content/
 │   ├── site.css                # 全局样式 (CSS Variables, 357行)
 │   └── images/products/        # 25 个 SVG 商品图片
@@ -101,7 +102,7 @@ ErpManagement1/
 
 | 角色 | 可访问页面 | 数据可见范围 |
 |---|---|---|
-| 管理员 | 全部 21 个页面 | 含软删除/已禁用数据 |
+| 管理员 | 全部 25 个页面 | 含软删除/已禁用数据 |
 | 店长 | 全部页面（不可编辑管理员，仅可创建操作员） | 仅活跃数据 |
 | 操作员 | 仅购物车 + 快递页面 | 仅活跃数据 |
 | 未登录 | Store 前台 + Login + 快递 Public | - |
