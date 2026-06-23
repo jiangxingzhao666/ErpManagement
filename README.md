@@ -74,10 +74,9 @@ ErpManagement1/
 ├── Web.config                  # PostgreSQL 连接 + UTF-8 配置
 ├── Global.asax                 # Token 过期清理 (每10请求)
 ├── Default.aspx                # 根入口 → 前台页面
-├── seed_data.sql               # 种子数据 (7段)
-├── update_images.sql           # SP001-SP010 图片更新
-├── update_images2.sql          # SP011-SP025 图片更新
-├── create_shipments.sql        # 快递表 DDL + 数据
+├── Database/
+│   ├── schema.sql              # 表结构 (10张表 DDL)
+│   └── seed.sql                # 初始数据 (分类/供应商/商品/客户/进货/销售/快递/图片)
 ├── 网站设计说明书.md             # 设计说明书 v3.0
 ├── 软件文档.md                  # 软件文档
 └── 测试数据文档.md               # 测试数据说明
@@ -119,9 +118,8 @@ ErpManagement1/
 
 1. 安装 PostgreSQL，创建 `aspnet` 数据库
 2. 修改 `Web.config` 连接字符串
-3. 执行 `seed_data.sql` 导入测试数据
-4. 执行 `create_shipments.sql` 创建快递表
-5. 按需执行 `update_images.sql` / `update_images2.sql`
+3. 执行 `Database\schema.sql` 创建表结构
+4. 执行 `Database\seed.sql` 导入初始数据
 6. IIS / IIS Express 启动 → `http://localhost/`
 
 ## 架构原则
