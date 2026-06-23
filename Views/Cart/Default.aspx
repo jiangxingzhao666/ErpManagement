@@ -77,7 +77,8 @@
                                     </div>
                                 </asp:LinkButton>
                             </ItemTemplate>
-                            <FooterTemplate></div></FooterTemplate>
+                            <FooterTemplate>
+                                </div></FooterTemplate>
                         </asp:Repeater>
                         <asp:Panel ID="pnlNoProducts" runat="server" Visible="false">
                             <div style="text-align:center;padding:40px;color:#999;">没有匹配的商品</div>
